@@ -1,0 +1,19 @@
+<div *ngIf="errores.length > 0" class="alert alert-danger">
+    <h4>⚠️ Sensores con error</h4>
+    <ul>
+      <li *ngFor="let err of errores">
+        {{ err.fecha | date:'short' }} - {{ err.mensaje }}
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngIf="registros.length === 0">
+    <p>No hay registros disponibles.</p>
+  </div>
+  
+  <div *ngFor="let r of registros" class="card">
+    <p><strong>Fecha:</strong> {{ r.fecha | date:'short' }}</p>
+    <p><strong>Pulso:</strong> {{ r.pulso }} bpm</p>
+    <p><strong>SpO₂:</strong> {{ r.spo2 }} %</p>
+  </div>
+  
